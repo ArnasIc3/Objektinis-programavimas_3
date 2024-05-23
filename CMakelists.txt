@@ -1,0 +1,23 @@
+cmake_minimum_required(VERSION 3.12)
+project(v3.0)
+
+# Add your source files here
+set(SOURCES
+    main.cpp
+    menu.cpp
+    student.cpp 
+    menu.h 
+    student.h
+)
+
+# Set the -O1 optimization flag
+#set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O1")
+
+# Or, for -O2 optimization
+# set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O2")
+
+# Or, for -O3 optimization
+# set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3")
+
+# Add executable target
+add_executable(v3.0 ${SOURCES} ${HEADERS})
