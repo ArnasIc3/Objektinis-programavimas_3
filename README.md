@@ -100,8 +100,16 @@ Sūkurtas CMakelists.txt failas kuris leidžia sukompeliuoti tinkamai kodą per 
 <p> v1.2 - Rule of Five realizavimas su galimu testavimu (main.cpp pakeitus runTests iš False į True ir atvirkčiai) + I/O operatoriai. </p>
 <p> v1.5 - realizuota abstrakti klasė "Zmogus". (objektų kūrimas negalimas)</p>
 <p> v2.0 - dokumentacija naudojant doxygen programine įranga (html ir pdf failai). Naudojant Google test (arba gtest), atlikti unit test'ai patikrinti konstruktorių veikimą klasėje. (konstruktorius, konstruktorius su parametrais, seteriai ir geteriai)</p>
+<p> v3.0 - sukurtas nuosavas vektorius (mVector), kuris naudoja 90% std::vector funkcijų. Atnaujinta dokumentacija naudojant doxygen programine įranga (html ir pdf failas). Atlikti Google test patikrinti ar sukurti vektoriai atlieka savo funkcijas teisingai. Pridetas Setup.msi, kuris įdiegia į kompiuterio sistemą programą ir kuris saugo failus <Program Files x86 -> VU -> Vardernis-Pavardernis>. Taip pat padarytas shortcut and vartotojo dekstop ir uninstalleris Vardenis-Pavardenis saugykloje. </p>
 
-<h1>💣 2.0 UNIT TESTAS: </h1>
+<h1>💣 3.0 UNIT TEST (GOOGLE TESTS) IR NUOSAVO VEKTORIAUS TESTAI</h1>
+<p>Nuosavo vektoriaus ir std::vector push_back() ir atminties pasiskirstymo testų rezultatai: </p> 
+![image](https://github.com/ArnasIc3/Objektinis-programavimas_3/assets/149010264/b767a82a-17c2-4d8a-a701-a3c04f09655f)
+<p>Google test unit test:</p>
+![image](https://github.com/ArnasIc3/Objektinis-programavimas_3/assets/149010264/70b19021-6b7a-460e-8fd8-6c6c95414f60)
+
+
+<h1> 2.0 UNIT TESTAS (NAUDOJANT GOOGLE TESTS(gtest)): </h1>
 
 ## UNIT TEST ##
 ![image](https://github.com/ArnasIc3/Objektinis-programavimas_2/assets/149010264/3c3cb286-0b27-49fb-aef9-2ccb89b5a8c3)
