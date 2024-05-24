@@ -1,0 +1,51 @@
+﻿<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Product Id="*" Name="Balu-skaiciuokle" Language="1033" Version="3.0" Manufacturer="VU" UpgradeCode="a882d137-c339-4522-9fe5-3536870b667b">
+    <Package InstallerVersion="500" Compressed="yes" InstallScope="perMachine" InstallPrivileges="elevated" />
+  
+    <Media Id="1" Cabinet="media1.cab" EmbedCab="yes" />
+    
+    <Icon Id="ProductIcon" SourceFile="C:\Users\Arnas\Desktop\v3.0\images.ico"/>
+    <Property Id="ARPPRODUCTICON" Value="ProductIcon" />
+  
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="ProgramFilesFolder">
+        <Directory Id="VUDirectory" Name="VU">
+          <Directory Id="INSTALLFOLDER" Name="Vardenis-Pavardenis">
+            <Component Id="MainExecutable" Guid="6eaf79d0-1923-43dd-b597-b905a713493e">
+              <File Id="MainExecutableFile" Source="C:\Users\Arnas\Desktop\v3.0\v3.0.exe" KeyPath="yes" />
+            </Component>
+          </Directory>
+        </Directory>
+      </Directory>
+      <Directory Id="DesktopFolder" Name="Desktop">
+        <Component Id="DesktopShortcutComponent" Guid="7eaf79d0-1923-43dd-b597-b905a713493e">
+          <RegistryValue Root="HKCU" Key="Software\Balu-skaiciuokle\DesktopShortcut" Name="Installed" Type="integer" Value="1" KeyPath="yes"/>
+          <Shortcut Id="DesktopShortcut"
+                    Name="Balu-skaiciuokle"
+                    Description="Apskaiciuoja studentu balus"
+                    Target="[INSTALLFOLDER]v3.0.exe" />
+        </Component>
+      </Directory>
+      <Directory Id="ProgramMenuFolder">
+        <Directory Id="ProgramMenuDir" Name="Balu-skaiciuokle">
+          <Component Id="UninstallShortcutComponent" Guid="8eaf79d0-1923-43dd-b597-b905a713493e">
+            <Shortcut Id="UninstallShortcut"
+                      Name="Uninstall Balu-skaiciuokle"
+                      Description="Uninstalls Balu-skaiciuokle"
+                      Target="[System64Folder]msiexec.exe"
+                      Arguments="/x [ProductCode]"
+                      WorkingDirectory="INSTALLFOLDER" />
+            <RemoveFolder Id="ProgramMenuDir" On="uninstall"/>
+            <RegistryValue Root="HKCU" Key="Software\Balu-skaiciuokle\UninstallShortcut" Name="Installed" Type="integer" Value="1" KeyPath="yes"/>
+          </Component>
+        </Directory>
+      </Directory>
+    </Directory>
+    
+    <Feature Id="MainFeature" Title="Main Installation" Level="1">
+      <ComponentRef Id="MainExecutable" />
+      <ComponentRef Id="DesktopShortcutComponent" />
+      <ComponentRef Id="UninstallShortcutComponent" /> 
+    </Feature>
+  </Product>
+</Wix>
