@@ -214,6 +214,14 @@ vec1.swap(vec2); // Dabar vec1 turi 30, 40, o vec2 turi 10, 20
 <p> Šis pavyzdys parodo, kaip naudoti swap funkciją, kad apsikeistumėte dviejų vektorių turinį. </p>
 
 <h1>💣 3.0 UNIT TEST (GOOGLE TESTS) IR NUOSAVO VEKTORIAUS TESTAI</h1>
+<h3>std::vector greitis naudojant 3-ią strategiją: </h3>
+
+![image](https://github.com/ArnasIc3/Objektinis-programavimas_3/assets/149010264/63e1e612-aabe-4d9e-a9d6-0c0dba24f802)
+
+<h3>mVector(nuosavo vektorio) greitis naudojant 3-ią strategiją: </h3>
+
+![image](https://github.com/ArnasIc3/Objektinis-programavimas_3/assets/149010264/edbbfacd-faac-4617-a3f7-2f756ae207f6)
+
 <p>Nuosavo vektoriaus ir std::vector push_back() ir atminties pasiskirstymo testų rezultatai: </p> 
 
 ![image](https://github.com/ArnasIc3/Objektinis-programavimas_3/assets/149010264/b767a82a-17c2-4d8a-a701-a3c04f09655f)
