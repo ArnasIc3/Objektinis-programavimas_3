@@ -102,6 +102,117 @@ Sūkurtas CMakelists.txt failas kuris leidžia sukompeliuoti tinkamai kodą per 
 <p> v2.0 - dokumentacija naudojant doxygen programine įranga (html ir pdf failai). Naudojant Google test (arba gtest), atlikti unit test'ai patikrinti konstruktorių veikimą klasėje. (konstruktorius, konstruktorius su parametrais, seteriai ir geteriai)</p>
 <p> v3.0 - sukurtas nuosavas vektorius (mVector), kuris naudoja 90% std::vector funkcijų. Atnaujinta dokumentacija naudojant doxygen programine įranga (html ir pdf failas). Atlikti Google test patikrinti ar sukurtas vektoriaus konteineris atlieka savo funkcijas teisingai. Pridetas Setup.msi, kuris įdiegia į kompiuterio sistemą programą ir kuris saugo failus <Program Files x86 -> VU -> Vardernis-Pavardernis>. Taip pat padarytas shortcut and vartotojo dekstop ir uninstalleris Vardenis-Pavardenis saugykloje. </p>
 
+<h1> mVector funkcijos ir operatoriai </h1>
+<h2> push_back() </h2>
+<p>Prideda elementą į vektoriaus galą. Jei esama talpa nėra pakankama, ji priskiria daugiau vietos ir tada prideda elementą.</p>
+
+Sintaksė:
+
+```
+void push_back(const T& value);
+void push_back(T&& value);
+```
+
+<p>Pavyzdys:</p>
+
+```
+mVector<int> vec;
+vec.push_back(10); // Prideda 10 į vektorių
+vec.push_back(20); // Prideda 20 į vektorių
+```
+
+<p> Šiame pavyzdyje push_back funkcija naudojama pridedant du sveikus skaičius, 10 ir 20, į mVector. </p>
+
+<h2> resize() </h2>
+<p>Keičia vektoriaus dydį. Jei naujas dydis yra didesnis už esamą dydį, nauji elementai yra pradiniai sukonfigūruoti pagal numatytąją vertę. Jei naujas dydis yra mažesnis, vektorius sutrumpinamas. </p>
+
+```
+void resize(size_t new_size);
+```
+
+<p>Pavyzdys: </p>
+
+```
+mVector<int> vec;
+vec.push_back(10);
+vec.push_back(20);
+vec.resize(5);
+```
+
+<p> Šis pavyzdys parodo, kaip naudoti resize, kad pakeistumėte vektoriaus dydį iki 5 elementų.(atsiranda papildomos 3 vietos, kur yra galima talpinti duomenis) </p>
+
+<h2> operator[] </h2>
+
+<p> Suteikia prieigą prie elemento nurodytoje pozicijoje. Netikrina ribų. </p>
+
+<p> Sintaksė: </p>
+
+```
+T& operator[](size_t index);
+const T& operator[](size_t index) const;
+```
+
+<p> Pavyzdys: </p>
+
+```
+mVector<int> vec;
+vec.push_back(10);
+vec.push_back(20);
+int value = vec[1]; // Prieiga prie antro elemento (20)
+```
+
+<p> Šis pavyzdys parodo, kaip naudoti operator[], kad prieitų prie elemento antroje vektoriaus pozicijoje. </p>
+
+<h2> at </h2>
+<p> Suteikia prieigą prie elemento nurodytoje pozicijoje. Tikrina ribas ir išmeta išimtį, jei pozicija yra už ribų. </p>
+
+<p> Sintaksė: </p>
+
+```
+T& at(size_t index);
+const T& at(size_t index) const;
+```
+
+<p>Pavyzdys: </p>
+
+```
+mVector<int> vec;
+vec.push_back(10);
+vec.push_back(20);
+try {
+    int value = vec.at(2); // Išmeta išimtį, nes yra tik du elementai
+} catch (const std::out_of_range& e) {
+    std::cerr << "Už ribų klaida: " << e.what() << std::endl;
+}
+```
+
+<p> Šis pavyzdys parodo, kaip naudoti at funkciją su ribų tikrinimu, kuri išmes išimtį, jei indeksas yra už ribų. </p>
+
+<h2> swap </h2>
+<p>Keičiasi vektoriaus turiniu su kito vektoriaus turiniu. </p>
+
+<p> Sintaksė: </p>
+
+```
+void swap(mVector& other);
+```
+
+<p>Pavyzdys: </p>
+
+```
+mVector<int> vec1;
+vec1.push_back(10);
+vec1.push_back(20);
+
+mVector<int> vec2;
+vec2.push_back(30);
+vec2.push_back(40);
+
+vec1.swap(vec2); // Dabar vec1 turi 30, 40, o vec2 turi 10, 20
+```
+
+<p> Šis pavyzdys parodo, kaip naudoti swap funkciją, kad apsikeistumėte dviejų vektorių turinį. </p>
+
 <h1>💣 3.0 UNIT TEST (GOOGLE TESTS) IR NUOSAVO VEKTORIAUS TESTAI</h1>
 <p>Nuosavo vektoriaus ir std::vector push_back() ir atminties pasiskirstymo testų rezultatai: </p> 
 
