@@ -13,6 +13,29 @@ ISI 1 k., 1-1, Arnas Martinkus
 <p> 2. Run Setup.msi. </p>
 <p> 3. DONE! </p>
 
+<h2>🛠️ If needed to build the installer:</h2>
+
+<p> Install the WIX Toolset into your PC and follow the download instructions.</p>
+
+<p> 1. Open cmd. </p>
+<p> 2. Direct your cmd to your project folder/destination </p>
+
+```
+cd .../path/to/your/project.
+```
+<p> 3. To build your project: </p>
+
+```
+"C:\Program Files (x86)\WiX Toolset v3.11\bin\candle.exe" project_name.wxs
+```
+
+<p> 4. To create the installer: </p>
+
+```
+"C:\Program Files (x86)\WiX Toolset v3.11\bin\light.exe" -out Setup.msi installwix.wixobj
+```
+<p> NOTE: if the download of wix tooleset is in a diffrent directory, change accordingly.</p>
+
 <h2>🛠️ Setup to run and compile code:</h2>
 
 <p>1. Download VSCode:</p>
